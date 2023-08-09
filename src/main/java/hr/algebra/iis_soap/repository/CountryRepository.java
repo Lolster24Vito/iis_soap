@@ -1,7 +1,7 @@
 package hr.algebra.iis_soap.repository;
 
-import com.baeldung.springsoap.gen.Country;
-import com.baeldung.springsoap.gen.Currency;
+import hr.algebra.iis_soap.dto.xml.Country;
+import hr.algebra.iis_soap.dto.xml.Currency;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
