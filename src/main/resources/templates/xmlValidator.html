@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" />
+    <title>xsdValidate</title>
+</head>
+<body>
+<H3>Hello my wolds</H3>
+
+<form method="post" th:action="@{/xmlValidator.html}">
+    <button type="submit">Validate xml with XSD</button>
+</form>
+<p th:text="${xsdMessage}"></p>
+<p th:text="${xsdMessage1}"></p>
+
+
+<form method="post" th:action="@{/xmlValidatorRng.html}">
+    <button type="submit">Validate xml with rng</button>
+</form>
+<p th:text="${rngMessage}"></p>
+<p th:text="${rngMessage1}"></p>
+<br>
+<!-- th:object="${User}"-->
+<form method="post" th:action="@{/xml/xmlSoapCities.html}">
+    <label>Search Cities in Croatia</label>
+    <input type="text" name="query" />
+    <button type="submit">Search country city</button>
+</form>
+<!--
+<form method="post" th:action="@{/xsd/validateXML.html}">
+    <button type="submit">Validate xml with XSD</button>
+</form>
+<p th:text="${XSDmessage}"></p>
+<br/>
+<br/>
+<form method="post"  th:action="@{/xsd/validateRNG.html}">
+    <button type="submit">Validate xml with RNG</button>
+</form>
+<p th:text="${RNGmessage}"></p>
+
+<form method="post"  th:action="@{/xsd/validateSOAP.html}">
+    <label>xQuery query: </label>
+    <input type="text" name="xQuery"/>
+    <button type="submit">Validate generated file with SOAP</button>
+</form>
+<p th:text="${Validated}"></p>
+<p th:text="${Invalid}"></p>
+<p th:text="${Result}"></p>
+<br/>
+<br/>
+<br/>
+<a th:href="@{/xsd/cleanSession.html}">logout</a>
+
+ -->
+</body>
+
+</html>
