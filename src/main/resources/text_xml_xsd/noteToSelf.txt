@@ -1,0 +1,2 @@
+At the xml file had to add xmlns="http://www.algebra.hr/iis_soap/dto/xml" to the root and also
+change every True and False to true and false.

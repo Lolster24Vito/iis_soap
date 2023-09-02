@@ -22,37 +22,40 @@
 <p th:text="${rngMessage1}"></p>
 <br>
 <!-- th:object="${User}"-->
-<form method="post" th:action="@{/xml/xmlSoapCities.html}">
+<form method="post" th:action="@{/xmlSoapCities.html}">
     <label>Search Cities in Croatia</label>
     <input type="text" name="query" />
     <button type="submit">Search country city</button>
 </form>
-<!--
-<form method="post" th:action="@{/xsd/validateXML.html}">
-    <button type="submit">Validate xml with XSD</button>
-</form>
-<p th:text="${XSDmessage}"></p>
-<br/>
-<br/>
-<form method="post"  th:action="@{/xsd/validateRNG.html}">
-    <button type="submit">Validate xml with RNG</button>
-</form>
-<p th:text="${RNGmessage}"></p>
 
-<form method="post"  th:action="@{/xsd/validateSOAP.html}">
-    <label>xQuery query: </label>
-    <input type="text" name="xQuery"/>
-    <button type="submit">Validate generated file with SOAP</button>
-</form>
-<p th:text="${Validated}"></p>
-<p th:text="${Invalid}"></p>
-<p th:text="${Result}"></p>
-<br/>
-<br/>
-<br/>
-<a th:href="@{/xsd/cleanSession.html}">logout</a>
+<div  th:unless="${#lists.isEmpty(countryList)}">
 
- -->
+
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Population</th>
+            <th>Capital</th>
+            <th>Currency</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="country : ${countryList}">
+            <td th:text="${{country.name}}"> </td>
+            <td th:text="${country.population}"> </td>
+            <td th:text="${{country.capital}}"> </td>
+            <td th:text="${{country.currency.value()}}"> </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
 </body>
 
 </html>

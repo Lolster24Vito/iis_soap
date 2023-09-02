@@ -5,8 +5,11 @@ import hr.algebra.iis_soap.dto.xml.Currency;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class CountryRepository {
@@ -42,5 +45,19 @@ public class CountryRepository {
 
     public Country findCountry(String name) {
         return countries.get(name);
+    }
+    public List<Country> searchCountries(String name) {
+        List<Country> list=new ArrayList<>();
+        list.add(countries.get(name));
+        return list;
+    }
+    public List<Country>getAllCountry(){
+        return new ArrayList<>(countries.values());
+    }
+
+    public List<Country> findCountries(String name) {
+       return countries.values().stream().filter(
+               str->str.getName().contains(name))
+               .collect(Collectors.toList());
     }
 }

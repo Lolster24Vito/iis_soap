@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.algebra.hr/iis_soap/dto/xml"
+           targetNamespace="http://www.algebra.hr/iis_soap/dto/xml" elementFormDefault="qualified">
+
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="geonameid" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="code" type="xs:string"/>
+                <xs:element name="capital">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="geonameid" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="area_size" type="xs:string"/>
+                <xs:element name="population" type="xs:string"/>
+                <xs:element name="phone_code" type="xs:string"/>
+                <xs:element name="is_in_eu" type="xs:boolean"/>
+                <xs:element name="languages">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="flag">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="file" type="xs:string"/>
+                            <xs:element name="emoji" type="xs:string"/>
+                            <xs:element name="unicode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="tld" type="xs:string"/>
+                <xs:element name="depends_on" type="xs:string"/>
+                <xs:element name="territories">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="wiki_id" type="xs:string"/>
+                <xs:element name="wiki_url" type="xs:string"/>
+                <xs:element name="total_iso_divisions" type="xs:int"/>
+                <xs:element name="total_adm_divisions" type="xs:int"/>
+                <xs:element name="total_cities" type="xs:int"/>
+                <xs:element name="currency">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="code" type="tns:currencyCode"/>
+                            <xs:element name="name" type="tns:currencyName"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="timezone">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="timezone" type="xs:string"/>
+                            <xs:element name="gtm_offset" type="xs:int"/>
+                            <xs:element name="gmt_offset" type="xs:int"/>
+                            <xs:element name="is_daylight_saving" type="xs:boolean"/>
+                            <xs:element name="code" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="continent">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="geonameid" type="xs:string"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="code" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="currencyCode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="PLN"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="currencyName">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+</xs:schema>

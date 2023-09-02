@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.algebra.hr/iis_soap/dto/xml">
+    <geonameid>2635167</geonameid>
+    <name>United Kingdom</name>
+    <code>GB</code>
+    <capital>
+        <name>London</name>
+        <geonameid>2643743</geonameid>
+    </capital>
+    <area_size>244820.00 sq. km</area_size>
+    <population>66488991</population>
+    <phone_code>44</phone_code>
+    <is_in_eu>false</is_in_eu>
+    <languages>
+        <en>English language</en>
+        <cy>Welsh language</cy>
+        <gd>Scottish Gaelic</gd>
+    </languages>
+    <flag>
+        <file>https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_Kingdom.svg</file>
+        <emoji>🇬🇧</emoji>
+        <unicode>U+1F1EC U+1F1E7</unicode>
+    </flag>
+    <tld>.uk</tld>
+    <depends_on/>
+    <territories>
+        <SH>Saint Helena</SH>
+        <MS>Montserrat</MS>
+        <IM>Isle of Man</IM>
+        <JE>Jersey</JE>
+        <FK>Falkland Islands</FK>
+        <VG>British Virgin Islands</VG>
+        <KY>Cayman Islands</KY>
+        <GG>Guernsey</GG>
+        <GI>Gibraltar</GI>
+        <PN>Pitcairn Islands</PN>
+        <AI>Anguilla</AI>
+        <TC>Turks and Caicos Islands</TC>
+        <BM>Bermuda</BM>
+        <GS>South Georgia and the South Sandwich Islands</GS>
+        <HM>Heard Island and McDonald Islands</HM>
+        <IO>British Indian Ocean Territory</IO>
+    </territories>
+    <wiki_id>Q145</wiki_id>
+    <wiki_url>https://en.wikipedia.org/wiki/United_Kingdom</wiki_url>
+    <total_iso_divisions>4</total_iso_divisions>
+    <total_adm_divisions>54</total_adm_divisions>
+    <total_cities>6538</total_cities>
+    <currency>
+        <code>GBP</code>
+        <name>Pound sterling</name>
+    </currency>
+    <timezone>
+        <timezone>Europe/London</timezone>
+        <gtm_offset>3600</gtm_offset>
+        <gmt_offset>3600</gmt_offset>
+        <is_daylight_saving>true</is_daylight_saving>
+        <code>BST</code>
+    </timezone>
+    <continent>
+        <geonameid>6255148</geonameid>
+        <name>Europe</name>
+        <code>EU</code>
+    </continent>
+    <status>success</status>
+</root>
