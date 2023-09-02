@@ -15,17 +15,18 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Currency complex type.
+ * <p>Java class for Flag complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Currency"&gt;
+ * &lt;complexType name="Flag"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="file" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="emoji" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="unicode" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,63 +36,90 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Currency", propOrder = {
-    "code",
-    "name"
+@XmlType(name = "Flag", propOrder = {
+    "file",
+    "emoji",
+    "unicode"
 })
-public class Currency {
+public class Flag {
 
     @XmlElement(required = true)
-    protected String code;
+    protected String file;
     @XmlElement(required = true)
-    protected String name;
+    protected String emoji;
+    @XmlElement(required = true)
+    protected String unicode;
 
     /**
-     * Gets the value of the code property.
+     * Gets the value of the file property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCode() {
-        return code;
+    public String getFile() {
+        return file;
     }
 
     /**
-     * Sets the value of the code property.
+     * Sets the value of the file property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCode(String value) {
-        this.code = value;
+    public void setFile(String value) {
+        this.file = value;
     }
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the emoji property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getName() {
-        return name;
+    public String getEmoji() {
+        return emoji;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the emoji property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setEmoji(String value) {
+        this.emoji = value;
+    }
+
+    /**
+     * Gets the value of the unicode property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUnicode() {
+        return unicode;
+    }
+
+    /**
+     * Sets the value of the unicode property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUnicode(String value) {
+        this.unicode = value;
     }
 
 }

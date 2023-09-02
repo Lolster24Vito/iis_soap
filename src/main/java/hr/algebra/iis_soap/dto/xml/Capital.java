@@ -15,17 +15,17 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Currency complex type.
+ * <p>Java class for Capital complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Currency"&gt;
+ * &lt;complexType name="Capital"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="geonameid" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,40 +35,15 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Currency", propOrder = {
-    "code",
-    "name"
+@XmlType(name = "Capital", propOrder = {
+    "name",
+    "geonameid"
 })
-public class Currency {
+public class Capital {
 
-    @XmlElement(required = true)
-    protected String code;
     @XmlElement(required = true)
     protected String name;
-
-    /**
-     * Gets the value of the code property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCode() {
-        return code;
-    }
-
-    /**
-     * Sets the value of the code property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCode(String value) {
-        this.code = value;
-    }
+    protected int geonameid;
 
     /**
      * Gets the value of the name property.
@@ -92,6 +67,22 @@ public class Currency {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the geonameid property.
+     * 
+     */
+    public int getGeonameid() {
+        return geonameid;
+    }
+
+    /**
+     * Sets the value of the geonameid property.
+     * 
+     */
+    public void setGeonameid(int value) {
+        this.geonameid = value;
     }
 
 }
