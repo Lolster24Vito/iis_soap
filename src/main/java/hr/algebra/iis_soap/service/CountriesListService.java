@@ -47,9 +47,7 @@ public class CountriesListService {
 
 
         CountriesList countriesList=new CountriesList();
-        Map<String,String> map=new HashMap<>();
-        map.put("hrj","jrvatska");
-        countriesList.setCountries(map);
+
         HttpResponse<String> response = null;
 
         try {

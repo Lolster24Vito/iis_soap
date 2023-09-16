@@ -6,6 +6,7 @@ import hr.algebra.iis_soap.dto.xml.GetCountriesResponse;
 import hr.algebra.iis_soap.dto.xml.GetCountryRequest;
 import hr.algebra.iis_soap.endpoint.CountryEndpoint;
 import hr.algebra.iis_soap.service.CountryService;
+import hr.algebra.iis_soap.service.RpcService;
 import hr.algebra.iis_soap.service.XpathService;
 import hr.algebra.iis_soap.service.XsdValidator;
 import jakarta.xml.bind.JAXBContext;
@@ -39,6 +40,9 @@ public class XmlValidatorController {
 
     @Autowired
     private XpathService xpathService;
+
+    @Autowired
+    private RpcService rpcService;
 
     XsdValidator xsdValidator=new XsdValidator();
     private final String xmlBadPath="/src/main/resources/badCities.xml";
@@ -130,6 +134,25 @@ public class XmlValidatorController {
             e.printStackTrace();
         }
         model.addAttribute("countryXML",xml);
+
+        /*
+         JAXBContext jaxbContext = JAXBContext.newInstance(Question.class);
+
+        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+        Question que= (Question) jaxbUnmarshaller.unmarshal(file);
+
+        System.out.println(que.getId()+" "+que.getQuestionname());
+        System.out.println("Answers:");
+         */
+
+        return "xmlValidator";
+
+    }
+    @PostMapping("/rpcWeather.html")
+    public String rpcWeather(@RequestParam String query,Model model){
+        //peti zadatak
+        String rpcResult = rpcService.getTemperature(query);
+        model.addAttribute("rpcResult",rpcResult);
 
 
         return "xmlValidator";

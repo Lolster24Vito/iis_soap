@@ -96,6 +96,14 @@
     <button type="submit">Search XML with XPath</button>
 </form>
 <p th:text="${xPath}"></p>
+
+
+<form method="post" th:action="@{/rpcWeather.html}">
+    <label>Search Weather</label>
+    <input type="text" value="Bjelovar" name="query" />
+    <button type="submit">Search city for weather using rpc</button>
+</form>
+<p th:text="${rpcResult}"></p>
 </body>
 
 </html>
