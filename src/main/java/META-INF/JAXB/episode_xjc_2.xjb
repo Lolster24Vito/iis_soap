@@ -19,7 +19,7 @@ Generated on: 2023.08.09 at 10:08:14 PM CEST
       <class ref="hr.algebra.iis_soap.dto.xml.GetCountryResponse"/>
     </bindings>
     <bindings scd="~tns:country">
-      <class ref="hr.algebra.iis_soap.dto.xml.Country"/>
+      <class ref="hr.algebra.iis_soap.dto.xml.Root"/>
     </bindings>
     <bindings scd="~tns:currency">
       <typesafeEnumClass ref="hr.algebra.iis_soap.dto.xml.Currency"/>

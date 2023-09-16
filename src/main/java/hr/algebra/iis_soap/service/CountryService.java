@@ -1,6 +1,6 @@
 package hr.algebra.iis_soap.service;
 
-import hr.algebra.iis_soap.dto.xml.Country;
+import hr.algebra.iis_soap.dto.xml.Root;
 import hr.algebra.iis_soap.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ public class CountryService {
     @Autowired
     private CountryRepository repository;
 
-    public Country searchCountry(String countryName){
+    public Root searchCountry(String countryName){
 
-        return repository.findCountry(countryName);
+        return repository.findCountries(countryName).stream().findFirst().get();
     }
-    public List<Country> getAllCountries(){
+    public List<Root> getAllCountries(){
         return repository.getAllCountry();
     }
 }

@@ -40,21 +40,21 @@ import java.util.List;
 public class GetCountriesResponse {
 
     @XmlElement(required = true)
-    protected List<Country> country;
+    protected List<Root> country;
 
     /**
      * Gets the value of the country property.
      * 
      * @return
      *     possible object is
-     *     {@link Country }
+     *     {@link Root }
      *     
      */
-    public List<Country> getCountry() {
+    public List<Root> getCountry() {
         return country;
     }
 
-    public void setCountry(List<Country> country) {
+    public void setCountry(List<Root> country) {
         this.country = country;
     }
 }

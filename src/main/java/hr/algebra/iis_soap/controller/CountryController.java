@@ -52,7 +52,7 @@ public class CountryController {
             System.out.println("File already exists.");
         }
 
-        SaveStringToFile(modifiedXml,countryCreatedfile);
+        SaveStringToFile(modifiedXml);
         Root root1 = xmlMapper.readValue(modifiedXml, Root.class);
 
         return root1;
@@ -62,10 +62,24 @@ public class CountryController {
         modifiedXml = modifiedXml.replaceAll("</([A-Z]{2})>", "</countryName> </country>");
         return modifiedXml;
     }
-    private void SaveStringToFile(String text,File file){
-        try (PrintWriter out = new PrintWriter(file)) {
-            out.println(text);
-        } catch (FileNotFoundException e) {
+    private void SaveStringToFile(String text){
+        try {
+            // Replace "example.txt" with the desired file name
+            String fileName = "countryCreated.xml";
+
+            // Create a File object for the resource folder
+            File resourceFolder = ResourceUtils.getFile("classpath:");
+
+            // Create the file path within the resource folder
+            File file = new File(resourceFolder, fileName);
+
+            // Write content to the file
+            try (FileWriter fileWriter = new FileWriter(file);
+                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+                bufferedWriter.write("This is some sample content that will be written to the file.");
+            }
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

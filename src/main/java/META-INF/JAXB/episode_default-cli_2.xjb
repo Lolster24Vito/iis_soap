@@ -22,7 +22,7 @@ Generated on: 2023.09.02 at 10:49:45 PM CEST
       <class ref="hr.algebra.iis_soap.dto.xml.GetCountryResponse"/>
     </bindings>
     <bindings scd="~tns:country">
-      <class ref="hr.algebra.iis_soap.dto.xml.Country"/>
+      <class ref="hr.algebra.iis_soap.dto.xml.Root"/>
     </bindings>
     <bindings scd="~tns:Capital">
       <class ref="hr.algebra.iis_soap.dto.xml.Capital"/>

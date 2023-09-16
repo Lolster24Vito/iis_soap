@@ -1,24 +1,33 @@
 package hr.algebra.iis_soap.repository;
 
+import hr.algebra.iis_soap.dto.api.CountriesList;
 import hr.algebra.iis_soap.dto.xml.*;
+import hr.algebra.iis_soap.service.CountriesListService;
 import jakarta.annotation.PostConstruct;
-import org.apache.commons.codec.language.bm.Lang;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 public class CountryRepository {
 
-    private static final Map<String, Country> countries = new HashMap<>();
+    @Autowired
+    private CountriesListService countriesListService;
+    private static final Map<String, Root> countries = new HashMap<>();
 
     @PostConstruct
     public void initData() {
-        Country spain = new Country();
+        Root spain = new Root();
         spain.setGeonameid(123);
         spain.setName("Spain");
         spain.setCode("SP");
@@ -103,21 +112,38 @@ public class CountryRepository {
 
     }
 
-    public Country findCountry(String name) {
+    public Root findCountry(String name) {
         return countries.get(name);
     }
-    public List<Country> searchCountries(String name) {
-        List<Country> list=new ArrayList<>();
+    public List<Root> searchCountries(String name) {
+        List<Root> list=new ArrayList<>();
         list.add(countries.get(name));
         return list;
     }
-    public List<Country>getAllCountry(){
+    public List<Root>getAllCountry(){
         return new ArrayList<>(countries.values());
     }
 
-    public List<Country> findCountries(String name) {
-       return countries.values().stream().filter(
-               str->str.getName().contains(name))
-               .collect(Collectors.toList());
+    public List<Root> findCountries(String name) {
+        CountriesList countriesList=new CountriesList();
+        try {
+            countriesList = countriesListService.getCountriesList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       // countriesMap.
+
+        Map<String,String> filteredCountries = countriesList.getCountries().entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().contains(name))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        String code=filteredCountries.keySet().toArray()[0].toString();
+        Root country = countriesListService.getCountry(code);
+        List<Root> countries=new ArrayList<>();
+        countries.add(country);
+        return countries;
     }
+
+
+
 }

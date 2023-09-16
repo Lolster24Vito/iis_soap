@@ -6,9 +6,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import hr.algebra.iis_soap.dto.api.CountriesList;
+import hr.algebra.iis_soap.dto.xml.Root;
 
-import java.util.*;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.OffsetTime;
 import java.time.ZoneOffset;
@@ -49,6 +48,10 @@ public class Converter {
     // Serialize/deserialize helpers
 
     public static CountriesList fromJsonString(String json) throws IOException {
+        return getObjectReader().readValue(json);
+    }
+
+    public static Root fromXmlString(String json) throws IOException {
         return getObjectReader().readValue(json);
     }
 

@@ -45,9 +45,9 @@
 <br>
 <!-- th:object="${User}"-->
 <form method="post" th:action="@{/xmlSoapCities.html}">
-    <label>Search Cities in Croatia</label>
+    <label>Search Countries in the World</label>
     <input type="text" name="query" />
-    <button type="submit">Search country city</button>
+    <button type="submit">Search country</button>
 </form>
 
 <div  th:unless="${#lists.isEmpty(countryList)}">
@@ -83,17 +83,19 @@
     </table>
     <div class="container">
         <h3>Xml results</h3>
-        <textarea placeholder="Type something here..."></textarea>
+        <p th:text="${countryXML}"> </p>W
     </div>
 
 </div>
 
+
+
 <form method="post" th:action="@{/searchXPath.html}">
     <label>Search Country with Xpath</label>
-    <input type="text" name="query" />
+    <input type="text" value="/root/name" name="query" />
     <button type="submit">Search XML with XPath</button>
 </form>
-
+<p th:text="${xPath}"></p>
 </body>
 
 </html>

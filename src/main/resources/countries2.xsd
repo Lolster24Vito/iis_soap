@@ -13,12 +13,42 @@
     <xs:element name="getCountryResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="country" type="tns:country"/>
+                <xs:element name="country" type="tns:groot"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="country">
+    <xs:element name="root">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="geonameid" type="xs:int"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="capital" type="tns:Capital"/>
+            <xs:element name="area_size" type="xs:string"/>
+            <xs:element name="population" type="xs:int"/>
+            <xs:element name="phone_code" type="xs:string"/>
+            <xs:element name="is_in_eu" type="xs:boolean"/>
+            <xs:element name="languages" type="tns:languages"/>
+            <xs:element name="flag" type="tns:Flag"/>
+            <xs:element name="tld" type="xs:string"/>
+            <xs:element name="depends_on" type="xs:anyType"/>
+            <xs:element name="territories" type="tns:territories"/>
+            <xs:element name="wiki_id" type="xs:string"/>
+            <xs:element name="wiki_url" type="xs:string"/>
+            <xs:element name="total_iso_divisions" type="xs:int"/>
+            <xs:element name="total_adm_divisions" type="xs:int"/>
+            <xs:element name="total_cities" type="xs:int"/>
+            <xs:element name="currency" type="tns:Currency"/>
+            <xs:element name="timezone" type="tns:Timezone"/>
+            <xs:element name="continent" type="tns:Continent"/>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+
+    <xs:complexType name="groot">
         <xs:sequence>
             <xs:element name="geonameid" type="xs:int"/>
             <xs:element name="name" type="xs:string"/>
