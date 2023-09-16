@@ -4,6 +4,28 @@
 <head>
     <meta content="text/html; charset=UTF-8" />
     <title>xsdValidate</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        textarea {
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+    </style>
 </head>
 <body>
 <H3>Hello my wolds</H3>
@@ -29,7 +51,7 @@
 </form>
 
 <div  th:unless="${#lists.isEmpty(countryList)}">
-
+<h3>Results:</h3>
 
     <table>
         <thead>
@@ -38,6 +60,9 @@
             <th>Population</th>
             <th>Capital</th>
             <th>Currency</th>
+            <th>Area Size</th>
+            <th>Total Cities</th>
+            <th>Continent</th>
         </tr>
         </thead>
 
@@ -45,16 +70,29 @@
         <tr th:each="country : ${countryList}">
             <td th:text="${{country.name}}"> </td>
             <td th:text="${country.population}"> </td>
-            <td th:text="${{country.capital}}"> </td>
-            <td th:text="${{country.currency.value()}}"> </td>
+            <td th:text="${{country.capital.name}}"> </td>
+            <td th:text="|${{country.currency.name}} ${country.currency.code}|"> </td>
+            <td th:text="${{country.areaSize}}"> </td>
+            <td th:text="${{country.totalCities}}"> </td>
+            <td th:text="${{country.continent.name}}"> </td>
+
 
 
         </tr>
         </tbody>
     </table>
+    <div class="container">
+        <h3>Xml results</h3>
+        <textarea placeholder="Type something here..."></textarea>
+    </div>
+
 </div>
 
-
+<form method="post" th:action="@{/searchXPath.html}">
+    <label>Search Country with Xpath</label>
+    <input type="text" name="query" />
+    <button type="submit">Search XML with XPath</button>
+</form>
 
 </body>
 
