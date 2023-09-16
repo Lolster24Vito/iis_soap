@@ -15,6 +15,8 @@ import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -35,12 +37,11 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@Service
 public class CountriesListService {
 
-    public boolean isXMLValid(){
-        return true;
-    }
+    @Value("${apiKey}")
+    private String apiKey;
     //program uses com.mashape.unirest:unirest-java library for accessing http
     //com.mashape.unirest:unirest-java
     public CountriesList getCountriesList() throws  IOException {
@@ -52,7 +53,7 @@ public class CountriesListService {
 
         try {
             response = Unirest.get("https://countries-cities.p.rapidapi.com/location/country/list")
-                    .header("X-RapidAPI-Key", "9ff84b14c4msh3628e42628ebbcep1f3f38jsn0eef35d1537e")
+                    .header("X-RapidAPI-Key", apiKey)
                     .header("X-RapidAPI-Host", "countries-cities.p.rapidapi.com")
                     .asString();
         } catch (UnirestException e) {
@@ -70,7 +71,7 @@ public class CountriesListService {
         String searchGet="https://countries-cities.p.rapidapi.com/location/country/"+code+"?format=xml";
         try {
             response = Unirest.get(searchGet)
-                    .header("X-RapidAPI-Key", "9ff84b14c4msh3628e42628ebbcep1f3f38jsn0eef35d1537e")
+                    .header("X-RapidAPI-Key", apiKey)
                     .header("X-RapidAPI-Host", "countries-cities.p.rapidapi.com")
                     .asString();
         } catch (UnirestException e) {
@@ -97,9 +98,8 @@ public class CountriesListService {
 
 
 
-        } catch (JAXBException | IOException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException | TransformerException | SAXException e) {
+        } catch (JAXBException | IOException |
+                 ParserConfigurationException | TransformerException | SAXException e) {
             e.printStackTrace();
         }
 
