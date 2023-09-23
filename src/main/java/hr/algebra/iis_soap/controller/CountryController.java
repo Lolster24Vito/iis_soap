@@ -64,7 +64,6 @@ public class CountryController {
     }
     private void SaveStringToFile(String text){
         try {
-            // Replace "example.txt" with the desired file name
             String fileName = "countryCreated.xml";
 
             // Create a File object for the resource folder
